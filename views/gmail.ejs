@@ -1,0 +1,18 @@
+<div class="widget-head">
+    <h3>Gmail New Mail</h3>
+    <a href="#" title="refresh this widget">refresh</a>
+</div>
+<div class="widget-content">
+    <% if (articles.length > 0) { %>
+    <ul>
+    <% articles.forEach(function(article) { %>
+    <li>
+        <h3><a href="<%=article.link%>" target="_blank"><%=article.title%></a></h3>
+        <p><%=article.summary%></p>
+    </li>    
+    <% }) %>
+    </ul>
+    <% } else { %>
+        <p>No new emails in inbox</p>
+    <% } %>
+</div>

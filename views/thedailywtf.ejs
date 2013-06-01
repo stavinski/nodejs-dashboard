@@ -1,0 +1,21 @@
+<div class="widget-head">
+    <h3>The Daily WTF!?!</h3>
+    <a href="#" title="refresh this widget">refresh</a>
+</div>
+<div class="widget-content">
+    <% for(var i=0; i < articleCount; i++) { %>
+    <li>
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                   <h3><a href="<%=articles[i].link%>" target="_blank"><%=articles[i].title%></a></h3>     
+                </td>
+            </tr>
+            <tr>
+                <td><%- articles[i].summary%></td>
+            </tr>
+        </table>
+    </li>    
+    <% } %>
+</div>
+

@@ -1,0 +1,53 @@
+<style type="text/css">
+#f1 ul, #f1 ul li, #f1 ul li table {
+    margin: 0;
+    padding: 0;
+}
+
+#f1 h3 {
+    margin-top: 0.5em;
+}
+
+#f1 ul li table tr th {
+    vertical-align: top;
+}
+
+#f1 h3 a {
+    text-decoration: none;
+}
+
+#f1 h3 a:hover{
+    text-decoration: underline;
+}
+</style>
+
+<div class="widget-head">
+    <h3>F1 Latest</h3>
+    <a href="#" title="refresh this widget">refresh</a>
+</div>
+<div class="widget-content">
+<ul>
+    <% for(var i=0; i < articleCount; i++) { %>
+    <li>
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td rowspan="2">
+                    <% if (articles[i].image) { %>
+                        <img src="<%=articles[i].image.url%>" />
+                    <% } %>
+                </td>
+                <td>
+                   <h3><a href="<%=articles[i].link%>" target="_blank"><%=articles[i].title%></a></h3>     
+                </td>
+            </tr>
+            <tr>
+                <td><%=articles[i].summary%></td>
+            </tr>
+        </table>
+    </li>    
+    <% } %>
+</ul>    
+</div>
+
+
+
