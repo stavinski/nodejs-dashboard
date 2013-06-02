@@ -9,11 +9,12 @@ At the moment the widgets are readonly but you could extend them to allow intera
 emails to be marked as read.
 
 credentials.json
-================
+----------------
 
 The source does not include the credentials.json file for obvious reasons ;) you need to add your own file the format
 looks like this:
 
+```json
 {
     "dashboard" : {
         "username" : "dashboard_username",
@@ -24,3 +25,4 @@ looks like this:
         "password" : "gmail_password"
     }
 }
+```
