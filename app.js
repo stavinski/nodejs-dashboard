@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , widgets = require('./widgets')
+  , credentials = require('./credentialStore')
   , http = require('http')
   , path = require('path');
 
@@ -19,7 +20,14 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.basicAuth('mike', 'password'));
+
+app.use(express.basicAuth(function (user, password, callback) {
+    credentials.getCredentials('dashboard', function (err, credentials) {
+        var result = user===credentials.username && password===credentials.password;
+        callback(err, result);
+    })
+}));
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
